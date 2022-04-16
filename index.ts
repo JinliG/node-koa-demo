@@ -11,6 +11,7 @@ import * as dotenv from 'dotenv';
 // 加载环境变量
 dotenv.config();
 const numOfCPUs = os.cpus().length;
+const cors = require('koa-cors');
 
 // 使用 cluster 利用多核 cpu，并自动控制负载均衡
 if (cluster.isPrimary) {
@@ -27,6 +28,7 @@ if (cluster.isPrimary) {
 } else {
   const app = new Koa();
 
+  app.use(cors());
   // 注册模板引擎
   app.use(views(path.join(__dirname, './server/views'), {
     extension: 'ejs'

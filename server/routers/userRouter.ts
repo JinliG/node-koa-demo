@@ -2,7 +2,6 @@ import Router from 'koa-router';
 import UserDao from '../models/userDao';
 
 const userRouter = new Router();
-
 userRouter.all('/user/listAll', async (ctx) => {
   const userDao = await UserDao.getInstance();
   ctx.body = await userDao.listAll();

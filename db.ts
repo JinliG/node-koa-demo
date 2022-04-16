@@ -1,6 +1,6 @@
 import { MongoClient, MongoClientOptions } from 'mongodb';
 
-const mongodbUri = 'mongodb+srv://username:password@cluster0.l7efp.mongodb.net/node_server_demo?retryWrites=true&w=majority';
+const mongodbUri = 'mongodb+srv://jinli:1231566regret@cluster0.l7efp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 const mongodbOptions = {
   maxPoolSize: 20,
   minPoolSize: 10,
@@ -12,7 +12,7 @@ async function initPool() {
   const client = new MongoClient(mongodbUri, mongodbOptions);
   try {
     await client.connect();
-    console.log(`worker ${process.pid} db connect success`);
+    console.log(`--- worker ${process.pid} db connect success`);
   } catch (error) {
     client.close();
     throw error;

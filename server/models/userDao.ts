@@ -37,7 +37,6 @@ async function createUserDao(): Promise<UserDaoTypes> {
         return await connection?.find({}).toArray();
       } catch (error) {
         console.error(error);
-        throw error;
       }
     },
     findBy: async function(queryParams: QueryParamTypes) {
@@ -48,7 +47,6 @@ async function createUserDao(): Promise<UserDaoTypes> {
         return result;
       } catch (error) {
         console.error(error);
-        throw error;
       }
     }
   }
